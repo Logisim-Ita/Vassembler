@@ -1,0 +1,36 @@
+.button
+{
+-fx-background-color : #4cf5ac;
+-fx-background-radius :0em;
+}
+.button:hover
+{
+-fx-background-color : #1fed94;
+}
+.button:pressed
+{
+-fx-background-color :  #1ad685;
+}
+.text-area .content{
+-fx-background-color: #353940;
+}
+
+.xbutton
+{
+-fx-background-color:  #1ad685;
+}
+.xbutton:hover
+{
+-fx-background-color : #1fed94;
+}
+.xbutton:pressed
+{
+-fx-background-color :  #1ad685;
+}
+.text-area{
+-fx-highlight-fill: #a6abb3;
+-fx-text-fill: #ffffff;
+-fx-background-color: #353940;
+-fx-font-family:"Consolas";
+-fx-font-size: 18px;
+}

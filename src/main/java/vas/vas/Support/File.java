@@ -15,24 +15,25 @@ public class File {
         JFrame frame = new JFrame();
         FileDialog fd = new FileDialog(frame, "Scegli dove salvare", FileDialog.SAVE);
         fd.setDirectory("");
-
         fd.setVisible(true);
-        java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".asm");
-        PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
-        writer.print(buffer);
-        writer.close();
-
+        if(!(fd.getDirectory() + fd.getFile()).equals("nullnull")){
+            java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".asm");
+            PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
+            writer.print(buffer);
+            writer.close();
+        }
     }
     public static void saveB18(String buffer) throws IOException {
         JFrame frame = new JFrame();
         FileDialog fd = new FileDialog(frame, "Scegli dove salvare", FileDialog.SAVE);
         fd.setDirectory("C:\\");
         fd.setVisible(true);
-        java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".b18");
-        PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
-        writer.print(buffer);
-        writer.close();
-
+        if(!(fd.getDirectory() + fd.getFile()).equals("nullnull")){
+            java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".b18");
+            PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
+            writer.print(buffer);
+            writer.close();
+        }
     }
     public static void loadASM(TextArea codezone) throws IOException {
         JFrame frame = new JFrame();

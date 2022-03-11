@@ -16,7 +16,7 @@ public class File {
         FileDialog fd = new FileDialog(frame, "Scegli dove salvare", FileDialog.SAVE);
         fd.setDirectory("");
         fd.setVisible(true);
-        if(!(fd.getDirectory() + fd.getFile()).equals("nullnull")){
+        if(fd.getDirectory() != null && fd.getFile() != null){
             java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".asm");
             PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
             writer.print(buffer);
@@ -26,9 +26,9 @@ public class File {
     public static void saveB18(String buffer) throws IOException {
         JFrame frame = new JFrame();
         FileDialog fd = new FileDialog(frame, "Scegli dove salvare", FileDialog.SAVE);
-        fd.setDirectory("C:\\");
+        fd.setDirectory("");
         fd.setVisible(true);
-        if(!(fd.getDirectory() + fd.getFile()).equals("nullnull")){
+        if(fd.getDirectory() != null && fd.getFile() != null){
             java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".b18");
             PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
             writer.print(buffer);
@@ -38,7 +38,7 @@ public class File {
     public static void loadASM(TextArea codezone) throws IOException {
         JFrame frame = new JFrame();
         FileDialog fd = new FileDialog(frame, "Scegli il file da caricare", FileDialog.LOAD);
-        fd.setDirectory("C:\\");
+        fd.setDirectory("");
         fd.setVisible(true);
         if(fd.getDirectory() != null && fd.getFile() != null){
             codezone.setText(full_file_reader(fd.getDirectory()+fd.getFile()));

@@ -94,7 +94,7 @@
             </VBox>
          </left>
          <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="1074.0" style="-fx-background-color: #1ad685;" stylesheets="@../css/text_result.css" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="1074.0" style="-fx-background-color: #1ad685;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
                <children>
                   <Label graphicTextGap="20.0" prefHeight="30.0" prefWidth="160.0" text="Vassembler" textFill="WHITE">
                      <graphic>
@@ -146,7 +146,7 @@
                </font></TextArea>
          </center>
          <right>
-            <TextArea fx:id="hexTextA" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/text_result.css" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="hexTextA" prefHeight="200.0" prefWidth="200.0" styleClass="jtext-area" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
    </children>

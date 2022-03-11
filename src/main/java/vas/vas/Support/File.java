@@ -16,7 +16,7 @@ public class File {
         FileDialog fd = new FileDialog(frame, "Scegli dove salvare", FileDialog.SAVE);
         fd.setDirectory("");
         fd.setVisible(true);
-        if(!(fd.getDirectory() + fd.getFile()).equals("nullnull")){
+        if(fd.getDirectory() != null && fd.getFile() != null){
             java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".asm");
             PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
             writer.print(buffer);
@@ -28,7 +28,7 @@ public class File {
         FileDialog fd = new FileDialog(frame, "Scegli dove salvare", FileDialog.SAVE);
         fd.setDirectory("C:\\");
         fd.setVisible(true);
-        if(!(fd.getDirectory() + fd.getFile()).equals("nullnull")){
+        if(fd.getDirectory() != null && fd.getFile() != null){
             java.io.File file = new java.io.File(fd.getDirectory()+fd.getFile()+".b18");
             PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
             writer.print(buffer);

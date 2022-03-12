@@ -23,6 +23,33 @@
 -fx-background-color: #353940;
 }
 
+.context-menu{
+-fx-background-color: #353940;
+}
+
+.context-menu:focused {
+    -fx-background-color:white;
+    -fx-focus-color:white;
+}
+
+.menu-item:focused {
+    -fx-background-color:white;
+    -fx-focus-color:white;
+}
+
+.menu:focused {
+    -fx-background-color:white;
+    -fx-focus-color:white;
+}
+
+.menu-item .label {
+  -fx-text-fill: white;
+}
+
+.menu-item:focused .label {
+  -fx-text-fill: #a6abb3;
+}
+
 .text-area{
 -fx-highlight-fill: #a6abb3;
 -fx-text-fill: #ffffff;

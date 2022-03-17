@@ -58,7 +58,10 @@ jlinkZip {
 }
 
 mainClassName = 'vas.vas.Main'
-
+/**
+ * Eseguire questa task per creare un .jar funzionante.
+ * Il .jar attualmente funziona solo nel sistema in cui è stato creato, win solo in win, linux solo in linux e stessa cosa per mac
+ */
 task fatJar(type: Jar) {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {

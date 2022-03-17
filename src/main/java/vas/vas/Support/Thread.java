@@ -39,6 +39,10 @@ public class Thread extends java.lang.Thread {
                     }
                     exit = true;
                     break;
+                case "file":
+                    build_list.list();
+                    exit = true;
+                    break;
             }
         }
     }

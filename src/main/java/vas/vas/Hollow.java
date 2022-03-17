@@ -18,12 +18,15 @@ public class Hollow extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception{
+        //Carico il file .fxml che definisce la grafica del programma
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/main.fxml")));
+        //Titolo del programma
         stage.setTitle("Vassembler");
+        //Icona del programma
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/icons8_puzzle_30px.png")));
         stage.getIcons().add(icon);
         Scene sc = new Scene(root);
-        //move
+        //Movimento del programma
         stage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(evt ->{
             x = evt.getSceneX();
@@ -36,7 +39,6 @@ public class Hollow extends Application {
         stage.setScene(sc);
         stage.show();
         Hollow.stage = stage;
-
     }
     public static void main(String[] args) {
         launch(args);

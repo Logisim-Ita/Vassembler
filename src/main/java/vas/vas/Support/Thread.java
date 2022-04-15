@@ -2,6 +2,7 @@ package vas.vas.Support;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import vas.vas.Assem.pop_up;
 
 import java.io.*;
 
@@ -17,7 +18,7 @@ public class Thread extends java.lang.Thread {
             switch (task){
                 case "salvaAsm":
                     try {
-                        File.saveasm(text);
+                        File.save(text,".asm");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -25,7 +26,7 @@ public class Thread extends java.lang.Thread {
                     break;
                 case "salva18":
                     try {
-                        File.saveB18(text);
+                        File.save(text,".b18");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -40,7 +41,11 @@ public class Thread extends java.lang.Thread {
                     exit = true;
                     break;
                 case "file":
-                    build_list.list();
+                    build_list.list(codezone);
+                    exit = true;
+                    break;
+                case "pop":
+                    pop_up.error_out();
                     exit = true;
                     break;
             }

@@ -50,6 +50,10 @@
   -fx-text-fill: #a6abb3;
 }
 
+.scroll-bar{
+-fx-background-color: #353940;
+}
+
 .text-area{
 -fx-highlight-fill: #a6abb3;
 -fx-text-fill: #ffffff;

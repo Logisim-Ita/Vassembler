@@ -5,8 +5,8 @@ plugins {
     id 'org.beryx.jlink' version '2.24.1'
 }
 
-group 'vas'
-version '1.0-SNAPSHOT'
+group 'Vassembler'
+version '1.2-SNAPSHOT'
 
 
 repositories {

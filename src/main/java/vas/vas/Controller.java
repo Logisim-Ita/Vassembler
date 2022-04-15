@@ -2,8 +2,9 @@ package vas.vas;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-import vas.vas.Support.Abbellimento;
+import vas.vas.Assem.Elaboration;
 import vas.vas.Support.Thread;
+import vas.vas.Support.beauty;
 
 public class Controller {
 
@@ -12,10 +13,6 @@ public class Controller {
 
     @FXML
     private TextArea hexTextA;
-    //Create un nuovo fxml apposito che prende istruzioni da file le mostra
-    public void webList(){
-
-    }
 
     /**
      * Tasto per terminare il programma
@@ -36,7 +33,7 @@ public class Controller {
      */
     public void beautify(){
         String buffer = codezone.getText();
-        codezone.setText(Abbellimento.editor(buffer));
+        codezone.setText(beauty.editor(buffer));
     }
 
     /**
@@ -53,10 +50,9 @@ public class Controller {
      */
     public void save18(){
         String buffer;
-        hexTextA.setEditable(false);
         buffer = hexTextA.getText();
         java.lang.Thread thread = new Thread("salva18",buffer);
-        new java.lang.Thread(thread).start();
+        thread.start();
     }
 
     /**
@@ -68,7 +64,16 @@ public class Controller {
     }
 
     public void list(){
-        java.lang.Thread thread = new Thread("file");
+        java.lang.Thread thread = new Thread("file",hexTextA);
+        thread.start();
+    }
+
+    public void assembla(){
+        Elaboration el = new Elaboration();
+        el.setInstructions();
+        hexTextA.setText(el.translation(codezone.getText()));
+        hexTextA.setEditable(false);
+        java.lang.Thread thread = new Thread("pop");
         thread.start();
     }
 }

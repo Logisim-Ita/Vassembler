@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vas.vas.Controller">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vas.vas.Controller">
    <children>
       <BorderPane layoutY="-1.0" prefHeight="619.0" prefWidth="1074.0" style="-fx-background-color: #1a1818;">
          <left>
             <VBox prefHeight="562.0" prefWidth="152.0" style="-fx-background-color: #4cf5ac;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="asm_save" fx:id="salvaasmButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#saveASM" prefHeight="42.0" prefWidth="170.0" text="Salva asm come..." textFill="WHITE">
+                  <Button id="asm_save" fx:id="salvaasmButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#saveASM" prefHeight="42.0" prefWidth="170.0" text="Salva asm" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -36,7 +36,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="b18_save" fx:id="salvab18Button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#save18" prefHeight="42.0" prefWidth="170.0" text="Salva b18 come..." textFill="WHITE">
+                  <Button id="b18_save" fx:id="salvab18Button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#save18" prefHeight="42.0" prefWidth="170.0" text="Salva b18" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -48,7 +48,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="assembla_button" fx:id="assemblaButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="170.0" text="Assembla" textFill="WHITE">
+                  <Button id="assembla_button" fx:id="assemblaButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#assembla" prefHeight="42.0" prefWidth="170.0" text="Assembla" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -60,7 +60,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="abbellisci_button" fx:id="abbButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="136.0" mnemonicParsing="false" onAction="#beautify" prefHeight="42.0" prefWidth="170.0" text="Abbellisci" textFill="WHITE">
+                  <Button id="abbellisci_button" fx:id="abbButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="136.0" mnemonicParsing="false" onAction="#beautify" prefHeight="42.0" prefWidth="170.0" text="Beautify the Code" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -111,7 +111,7 @@
                         </ImageView>
                      </graphic>
                      <font>
-                        <Font name="Courier New Bold Italic" size="12.0" />
+                        <Font name="Courier New Bold Italic" size="15.0" />
                      </font>
                   </Label>
                   <HBox />
@@ -146,7 +146,7 @@
             </HBox>
          </top>
          <center>
-            <TextArea id="textarea" fx:id="codezone" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
+            <TextArea id="textarea" fx:id="codezone" prefHeight="200.0" prefWidth="200.0" promptText="Code here:" stylesheets="@../css/styling.css" text="main:" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font></TextArea>

@@ -12,7 +12,31 @@
          <left>
             <VBox prefHeight="562.0" prefWidth="152.0" style="-fx-background-color: #4cf5ac;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="asm_save" fx:id="salvaasmButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#saveASM" prefHeight="42.0" prefWidth="170.0" text="Salva asm" textFill="WHITE">
+                  <Button id="asm_save" fx:id="salvaasmButton1" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save" prefHeight="42.0" prefWidth="170.0" text="Salva" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/save_18px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </Button>
+                  <Button id="asm_save" fx:id="salvaasmButton11" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save_as" prefHeight="42.0" prefWidth="170.0" text="Salva Con nome" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/save_18px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </Button>
+                  <Button id="asm_save" fx:id="salvaasmButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#newFile" prefHeight="42.0" prefWidth="170.0" text="Crea Nuovo" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>

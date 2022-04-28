@@ -50,6 +50,9 @@ public class Controller {
      /**
          * Pulsante per salvare i progressi in asm
          */
+     public void save_as(){
+        File.save(codezone.getText(),".asm");
+     }
      public void newFile(){
         if(!File.code.equals(codezone.getText())){
             pop_up.pop_exit("Non hai salvato perderai i progressi se non salvi!",codezone);

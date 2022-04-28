@@ -1,30 +1,30 @@
 .button{
--fx-background-color : #4cf5ac;
--fx-background-radius :0em;
+    -fx-background-color : #4cf5ac;
+    -fx-background-radius :0em;
 }
 .button:hover{
--fx-background-color : #1fed94;
+    -fx-background-color : #1fed94;
 }
 .button:pressed{
--fx-background-color :  #1ad685;
+    -fx-background-color :  #1ad685;
 }
 
 .xbutton{
--fx-background-color:  #1ad685;
+    -fx-background-color:  #1ad685;
 }
 .xbutton:hover{
--fx-background-color : #1fed94;
+    -fx-background-color : #1fed94;
 }
 .xbutton:pressed{
--fx-background-color :  #1ad685;
+    -fx-background-color :  #1ad685;
 }
 
 .text-area .content{
--fx-background-color: #353940;
+    -fx-background-color: #353940;
 }
 
 .context-menu{
--fx-background-color: #353940;
+    -fx-background-color: #353940;
 }
 
 .context-menu:focused {
@@ -47,30 +47,30 @@
 }
 
 .menu-item:focused .label {
-  -fx-text-fill: #a6abb3;
+      -fx-text-fill: #a6abb3;
 }
 
 .scroll-bar{
--fx-background-color: #353940;
+    -fx-background-color: #353940;
 }
 
 .text-area{
--fx-highlight-fill: #a6abb3;
--fx-text-fill: #ffffff;
--fx-background-color: #353940;
--fx-font-family:"Consolas";
--fx-font-size: 18px;
+    -fx-highlight-fill: #a6abb3;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #353940;
+    -fx-font-family:"Consolas";
+    -fx-font-size: 18px;
 }
 
 .jtext-area .content{
--fx-background-color: #2b3233;
+    -fx-background-color: #2b3233;
 }
 
 .jtext-area{
--fx-highlight-fill: #a6abb3;
--fx-text-fill: #ffffff;
--fx-background-color: #2b3233;
--fx-font-family:"Courier New";
--fx-font-size: 20px;
--fx-font-weight: bold;
+    -fx-highlight-fill: #a6abb3;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #2b3233;
+    -fx-font-family:"Courier New";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
 }

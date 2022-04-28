@@ -3,11 +3,14 @@ package vas.vas;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import vas.vas.Assem.Elaboration;
+import vas.vas.Assem.pop_up;
+import vas.vas.Support.File;
 import vas.vas.Support.Thread;
 import vas.vas.Support.beauty;
 
-public class Controller {
+import java.io.IOException;
 
+public class Controller {
     @FXML
     private TextArea codezone;
 
@@ -18,7 +21,12 @@ public class Controller {
      * Tasto per terminare il programma
      */
     public void stopApplication(){
-        System.exit(0);
+        if(File.code.equals(codezone.getText())){
+            System.exit(0);
+        }
+        else{
+            pop_up.pop_exit("Non hai salvato perderai i progressi se non salvi!");
+        }
     }
 
     /**
@@ -36,31 +44,34 @@ public class Controller {
         codezone.setText(beauty.editor(buffer));
     }
 
-    /**
-     * Pulsante per salvare i progressi in asm
-     */
-    public void saveASM(){
-        String buffer;
-        buffer = codezone.getText();
-        java.lang.Thread thread = new Thread("salvaAsm",buffer);
-        new java.lang.Thread(thread).start();
+    public void save() throws IOException {
+        File.save(codezone.getText());
     }
+     /**
+         * Pulsante per salvare i progressi in asm
+         */
+     public void newFile(){
+        if(!File.code.equals(codezone.getText())){
+            pop_up.pop_exit("Non hai salvato perderai i progressi se non salvi!",codezone);
+        }
+        else{
+            File.path = "";
+            File.code = "main:";
+            codezone.setText("main:");
+        }
+     }
     /**
      * Pulsante per salvare i progressi in b18
      */
     public void save18(){
-        String buffer;
-        buffer = hexTextA.getText();
-        java.lang.Thread thread = new Thread("salva18",buffer);
-        thread.start();
+        File.save(hexTextA.getText(),".b18");
     }
 
     /**
      * Caricare un file asm scelto dall'utente
      */
-    public void loadASM(){
-        java.lang.Thread thread = new Thread("loadASM",codezone);
-        thread.start();
+    public void loadASM() throws IOException {
+        File.loadASM(codezone);
     }
 
     public void list(){
@@ -73,7 +84,7 @@ public class Controller {
         el.setInstructions();
         hexTextA.setText(el.translation(codezone.getText()));
         hexTextA.setEditable(false);
-        java.lang.Thread thread = new Thread("pop");
-        thread.start();
+        pop_up.pop_up();
+        pop_up.clear();
     }
 }

@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class Hollow extends Application {
     double x,y = 0;
-    static Stage stage;
+    public static Stage stage;
     public static void iconified() {
         stage.setIconified(true);
     }

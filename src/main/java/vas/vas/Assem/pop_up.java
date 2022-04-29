@@ -5,8 +5,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import vas.vas.Support.File;
 
-import java.util.Objects;
-
 public class pop_up {
     static String messaggio = "";
     public void error_load(String messaggio){

@@ -5,6 +5,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import vas.vas.Support.File;
 
+import java.util.Objects;
+
 public class pop_up {
     static String messaggio = "";
     public void error_load(String messaggio){
@@ -15,37 +17,51 @@ public class pop_up {
         pop_up.messaggio = "";
     }
 
-    public static void pop_exit(String messaggio) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    public static void pop_exit(String messaggio){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Perlo Avviso");
         alert.setHeaderText(null);
         alert.setContentText(messaggio);
-        alert.showAndWait();
-        if (alert.getResult() == ButtonType.OK) {
-            System.exit(0);
-        }
+        ButtonType buttonTypeOne = new ButtonType("Chiudi comunque");
+        ButtonType buttonTypeTwo = new ButtonType("Ho cambiato idea");
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+        alert.showAndWait().ifPresent(type -> {
+            if (type == buttonTypeOne){
+                System.exit(0);
+            }
+        });
     }
 
     public static void pop_exit(String messaggio, TextArea codezone) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Perlo Avviso");
         alert.setHeaderText(null);
         alert.setContentText(messaggio);
-        alert.showAndWait();
-        //se l'utente ha premuto ok termina il programma
-        if (alert.getResult() == ButtonType.OK) {
-            File.path = "";
-            File.code = "main:";
-            codezone.setText("main:");
-        }
+
+        ButtonType buttonTypeOne = new ButtonType("Apri nuovo file");
+        ButtonType buttonTypeTwo = new ButtonType("Ho cambiato idea");
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+        alert.showAndWait().ifPresent(type -> {
+            if (type == buttonTypeOne){
+                File.path = "";
+                File.code = "main:";
+                codezone.setText("main:");
+            }
+        });
     }
 
     public static void pop_up() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Perlo Avviso");
+        alert.setGraphic(null);
         alert.setHeaderText(null);
         alert.setContentText(messaggio);
+        ButtonType buttonTypeOne = new ButtonType("Roger!");
+        alert.getButtonTypes().setAll(buttonTypeOne);
         alert.showAndWait();
     }
-
 }

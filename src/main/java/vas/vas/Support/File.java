@@ -2,10 +2,7 @@ package vas.vas.Support;
 
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
-import vas.vas.Assem.pop_up;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;

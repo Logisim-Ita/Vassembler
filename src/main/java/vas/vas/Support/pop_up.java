@@ -1,16 +1,14 @@
-package vas.vas.Assem;
+package vas.vas.Support;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
-import vas.vas.Support.File;
 
 public class pop_up {
     static String messaggio = "";
     public void error_load(String messaggio){
         pop_up.messaggio += messaggio;
     }
-
     public static void clear(){
         pop_up.messaggio = "";
     }
@@ -61,5 +59,19 @@ public class pop_up {
         ButtonType buttonTypeOne = new ButtonType("Roger!");
         alert.getButtonTypes().setAll(buttonTypeOne);
         alert.showAndWait();
+    }
+
+    public static void generating_file(){
+        pop_up er = new pop_up();
+        er.error_load("Sto generando il file istruzioni...");
+        pop_up.pop_up();
+        pop_up.clear();
+    }
+
+    public static void generated_file(){
+        pop_up er = new pop_up();
+        er.error_load("File istruzioni generato!\nBuona fortuna con la tua carriera di developer");
+        pop_up.pop_up();
+        pop_up.clear();
     }
 }

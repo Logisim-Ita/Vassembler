@@ -1,9 +1,18 @@
 package vas.vas.Assem;
 
 import vas.vas.Main;
+import vas.vas.Support.ChoiceBox;
+import vas.vas.Support.pop_up;
 
-import java.io.File;
+import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+import static java.awt.SystemColor.text;
 
 public class Elaboration {
 	Read r = new Read();
@@ -11,20 +20,25 @@ public class Elaboration {
 	public ArrayList<instructions> inst = new ArrayList<>();
 	String[] RegList;
 	String[] ModList;
-	public void setInstructions() {
-		File file = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-		String path_final = "";
-		try {
-			String path = file.getCanonicalPath();
-			String[] path_split = path.split("/");
-			for (int i = 0; i < path_split.length - 1; i++) {
-				path_final += path_split[i] + "/";
+	public void setInstructions() throws IOException {
+		String instructionSet;
+		if(ChoiceBox.Instruction_Mode == ChoiceBox.developer_mode){
+			if(ChoiceBox.path_developer.equals("")){
+				ChoiceBox.developer_path();
 			}
-			path_final += "instruction.txt";
-		} catch (Exception e) {
-			er.error_load("Errore nella lettura del file instruction.txt");
+			if(!ChoiceBox.developer_file_exist()){
+				pop_up.generating_file();
+				ChoiceBox.generate_developer_file();
+			}
+			instructionSet = r.readfilePass(ChoiceBox.path_developer);
 		}
-		String instructionSet = r.readfilePass(path_final);
+		else {
+			instructionSet = new BufferedReader(
+					new InputStreamReader(getFileFromResourceAsStream("vas/vas/instructions/instruction.txt"), StandardCharsets.UTF_8))
+					.lines()
+					.collect(Collectors.joining("\n"));
+		}
+
 		String[] atemp = instructionSet.split("___");
 		RegList = r.linedivision(atemp[0]);
 		ModList = r.linedivision(atemp[1]);
@@ -33,6 +47,20 @@ public class Elaboration {
 			inst.add(new instructions(linesSet[i].substring(0, linesSet[i].indexOf(" ")),
 					linesSet[i].substring(linesSet[i].indexOf(" ") + 1), RegList, ModList));
 		}
+	}
+	public static InputStream getFileFromResourceAsStream(String fileName) {
+
+		// The class loader that loaded the class
+		ClassLoader classLoader = Elaboration.class.getClassLoader();
+		InputStream inputStream = classLoader.getResourceAsStream(fileName);
+
+		// the stream holding the file content
+		if (inputStream == null) {
+			throw new IllegalArgumentException("Istruzioni non trovate!");
+		} else {
+			return inputStream;
+		}
+
 	}
 
 	public String translation(String input) {

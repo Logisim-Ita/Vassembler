@@ -1,7 +1,6 @@
 package vas.vas.Support;
 
 import javafx.scene.control.TextArea;
-import vas.vas.Assem.pop_up;
 import vas.vas.Main;
 
 import java.io.File;

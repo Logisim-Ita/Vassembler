@@ -1,14 +1,14 @@
 package vas.vas;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import vas.vas.Assem.Elaboration;
-import vas.vas.Assem.pop_up;
-import vas.vas.Support.File;
+import vas.vas.Support.*;
 import vas.vas.Support.Thread;
-import vas.vas.Support.beauty;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Controller {
     @FXML
@@ -16,6 +16,9 @@ public class Controller {
 
     @FXML
     private TextArea hexTextA;
+
+    @FXML
+    private Button listmode;
 
     /**
      * Tasto per terminare il programma
@@ -34,6 +37,10 @@ public class Controller {
      */
     public void minimize(){
         Hollow.iconified();
+    }
+
+    public void instructions_mode(){
+        ChoiceBox.developer_mode(listmode);
     }
 
     /**
@@ -83,7 +90,7 @@ public class Controller {
         thread.start();
     }
 
-    public void assembla(){
+    public void assembla() throws IOException {
         Elaboration el = new Elaboration();
         el.setInstructions();
         hexTextA.setText(el.translation(codezone.getText()));

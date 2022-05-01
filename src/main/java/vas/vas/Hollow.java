@@ -40,6 +40,7 @@ public class Hollow extends Application {
         stage.setScene(sc);
         stage.show();
         Hollow.stage = stage;
+        LngDefines.Italiano();
     }
     public static void main(String[] args) {
         launch(args);

@@ -2,13 +2,13 @@ package vas.vas;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import vas.vas.Assem.Elaboration;
 import vas.vas.Support.*;
 import vas.vas.Support.Thread;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class Controller {
     @FXML
@@ -20,9 +20,52 @@ public class Controller {
     @FXML
     private Button listmode;
 
+    @FXML
+    private Button save;
+
+    @FXML
+    private Button save_as;
+
+    @FXML
+    private Button create_new;
+
+    @FXML
+    private Button open_asm;
+
+    @FXML
+    private Button assemble;
+
+    @FXML
+    private Button export_rom;
+
+    @FXML
+    private Button beautify;
+
+    @FXML
+    private Button instruction_list;
+
+    @FXML
+    private Button language;
     /**
      * Tasto per terminare il programma
      */
+
+    public void change_language(){
+        LngDefines.swapLNG();
+
+        listmode.setText(LngDefines.LNG_Normal_Mode_using);
+        save.setText(LngDefines.LNG_Save_using);
+        save_as.setText(LngDefines.LNG_Save_as_using);
+        create_new.setText(LngDefines.LNG_Create_new_using);
+        open_asm.setText(LngDefines.LNG_Open_using);
+        assemble.setText(LngDefines.LNG_Assemble_using);
+        export_rom.setText(LngDefines.LNG_Export_Rom_using);
+        beautify.setText(LngDefines.LNG_Beautify_using);
+        instruction_list.setText(LngDefines.LNG_Instruction_list_using);
+        language.setText(LngDefines.LNG_Language_using);
+    }
+
+
     public void stopApplication(){
         if(File.code.equals(codezone.getText())){
             System.exit(0);
@@ -40,7 +83,7 @@ public class Controller {
     }
 
     public void instructions_mode(){
-        ChoiceBox.developer_mode(listmode);
+        Others.developer_mode(listmode);
     }
 
     /**

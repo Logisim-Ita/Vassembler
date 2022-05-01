@@ -1,18 +1,12 @@
 package vas.vas.Assem;
 
-import vas.vas.Main;
-import vas.vas.Support.ChoiceBox;
+import vas.vas.Support.Others;
 import vas.vas.Support.pop_up;
 
 import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.stream.Collectors;
-
-import static java.awt.SystemColor.text;
 
 public class Elaboration {
 	Read r = new Read();
@@ -22,15 +16,15 @@ public class Elaboration {
 	String[] ModList;
 	public void setInstructions() throws IOException {
 		String instructionSet;
-		if(ChoiceBox.Instruction_Mode == ChoiceBox.developer_mode){
-			if(ChoiceBox.path_developer.equals("")){
-				ChoiceBox.developer_path();
+		if(Others.Instruction_Mode == Others.developer_mode){
+			if(Others.path_developer.equals("")){
+				Others.developer_path();
 			}
-			if(!ChoiceBox.developer_file_exist()){
+			if(!Others.developer_file_exist()){
 				pop_up.generating_file();
-				ChoiceBox.generate_developer_file();
+				Others.generate_developer_file();
 			}
-			instructionSet = r.readfilePass(ChoiceBox.path_developer);
+			instructionSet = r.readfilePass(Others.path_developer);
 		}
 		else {
 			instructionSet = new BufferedReader(

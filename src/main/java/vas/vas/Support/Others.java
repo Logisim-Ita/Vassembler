@@ -11,7 +11,7 @@ import static vas.vas.Assem.Elaboration.getFileFromResourceAsStream;
 import static vas.vas.Support.pop_up.generated_file;
 import static vas.vas.Support.pop_up.generating_file;
 
-public class ChoiceBox {
+public class Others {
     public static boolean developer_mode = false;
     public static boolean classic_mode = true;
     public static boolean Instruction_Mode = true;
@@ -64,15 +64,15 @@ public class ChoiceBox {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            mode.setText("Developer Mode");
+            mode.setText(LngDefines.LNG_Developer_Mode_using);
             Instruction_Mode = developer_mode;
         }
         else if(Instruction_Mode){
-            mode.setText("Developer Mode");
+            mode.setText(LngDefines.LNG_Developer_Mode_using);
             Instruction_Mode = developer_mode;
         }
         else {
-            mode.setText("Normal Mode");
+            mode.setText(LngDefines.LNG_Normal_Mode_using);
             Instruction_Mode = classic_mode;
         }
 

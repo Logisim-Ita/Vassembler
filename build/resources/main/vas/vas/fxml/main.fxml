@@ -16,9 +16,9 @@
    <children>
       <BorderPane layoutY="-1.0" prefHeight="619.0" prefWidth="1074.0" style="-fx-background-color: #1a1818;">
          <left>
-            <VBox prefHeight="562.0" prefWidth="152.0" style="-fx-background-color: #4cf5ac;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="568.0" prefWidth="183.0" style="-fx-background-color: #4cf5ac;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="asm_save" fx:id="salvaasmButton1" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save" prefHeight="42.0" prefWidth="170.0" text="Salva" textFill="WHITE">
+                  <Button id="asm_save" fx:id="save" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save" prefHeight="42.0" prefWidth="277.0" text="Salva" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -30,7 +30,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="asm_save" fx:id="salvaasmButton11" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save_as" prefHeight="42.0" prefWidth="170.0" text="Salva Con nome" textFill="WHITE">
+                  <Button id="asm_save" fx:id="save_as" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save_as" prefHeight="42.0" prefWidth="310.0" text="Salva con nome" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="asm_save" fx:id="salvaasmButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#newFile" prefHeight="42.0" prefWidth="170.0" text="Crea Nuovo" textFill="WHITE">
+                  <Button id="asm_save" fx:id="create_new" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#newFile" prefHeight="42.0" prefWidth="293.0" text="Crea nuovo" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="asm_open" fx:id="apriasmButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#loadASM" prefHeight="42.0" prefWidth="170.0" text="Apri file asm" textFill="WHITE">
+                  <Button id="asm_open" fx:id="open_asm" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#loadASM" prefHeight="42.0" prefWidth="269.0" text="Apri file asm" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="assembla_button" fx:id="assemblaButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#assembla" prefHeight="42.0" prefWidth="170.0" text="Assembla" textFill="WHITE">
+                  <Button id="assembla_button" fx:id="assemble" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#assembla" prefHeight="42.0" prefWidth="291.0" text="Assembla" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="b18_save" fx:id="salvab18Button" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#save18" prefHeight="42.0" prefWidth="170.0" text="Esporta ROM Logisim" textFill="WHITE">
+                  <Button id="b18_save" fx:id="export_rom" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#save18" prefHeight="42.0" prefWidth="268.0" text="Esporta ROM Logisim" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,7 +90,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="abbellisci_button" fx:id="abbButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="136.0" mnemonicParsing="false" onAction="#beautify" prefHeight="42.0" prefWidth="170.0" text="Beautify the Code" textFill="WHITE">
+                  <Button id="abbellisci_button" fx:id="beautify" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="136.0" mnemonicParsing="false" onAction="#beautify" prefHeight="42.0" prefWidth="269.0" text="Abbellisci il codice" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="instruction_list_button" fx:id="listraIstruzioniButton" alignment="BASELINE_LEFT" graphicTextGap="6.0" mnemonicParsing="false" onAction="#list" prefHeight="42.0" prefWidth="170.0" text="Lista istruzioni" textFill="WHITE">
+                  <Button id="instruction_list_button" fx:id="instruction_list" alignment="BASELINE_LEFT" graphicTextGap="6.0" mnemonicParsing="false" onAction="#list" prefHeight="42.0" prefWidth="284.0" text="Lista Istruzioni" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -114,7 +114,7 @@
                         <Insets left="13.0" />
                      </padding>
                   </Button>
-                  <Button id="info_button" fx:id="listmode" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#instructions_mode" prefHeight="42.0" prefWidth="170.0" text="Normal Mode" textFill="WHITE">
+                  <Button id="info_button" fx:id="listmode" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#instructions_mode" prefHeight="42.0" prefWidth="233.0" text="Modalità Classica" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -126,7 +126,19 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button id="info_button" fx:id="infoButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="170.0" text="Info" textFill="WHITE">
+                  <Button id="info_button" fx:id="language" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#change_language" prefHeight="42.0" prefWidth="233.0" text="Lingua: Italiano" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/code_18px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </Button>
+                  <Button id="info_button" fx:id="infoButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="200.0" text="Info" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -157,7 +169,7 @@
                      </font>
                   </Label>
                   <HBox />
-                  <Button fx:id="minusButton" mnemonicParsing="false" onAction="#minimize" styleClass="xbutton" stylesheets="@../css/styling.css" HBox.hgrow="NEVER">
+                  <Button fx:id="minusButton" mnemonicParsing="false" onAction="#minimize" prefHeight="50.0" prefWidth="46.0" styleClass="xbutton" stylesheets="@../css/styling.css" HBox.hgrow="NEVER">
                      <graphic>
                         <ImageView id="minumButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -169,9 +181,9 @@
                         <Insets left="780.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#stopApplication" styleClass="xbutton" stylesheets="@../css/styling.css" fx:id="xxButton">
+                  <Button mnemonicParsing="false" onAction="#stopApplication" prefHeight="51.0" prefWidth="48.0" styleClass="xbutton" stylesheets="@../css/styling.css" fx:id="xxButton">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="33.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/icons8_x_44px_1.png" />
                            </image>
@@ -188,13 +200,13 @@
             </HBox>
          </top>
          <center>
-            <TextArea id="textarea" fx:id="codezone" prefHeight="200.0" prefWidth="200.0" promptText="Code here:" stylesheets="@../css/styling.css" text="main:" BorderPane.alignment="CENTER">
+            <TextArea id="textarea" fx:id="codezone" prefHeight="568.0" prefWidth="683.0" promptText="Code here:" stylesheets="@../css/styling.css" text="main:" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font></TextArea>
          </center>
          <right>
-            <TextArea fx:id="hexTextA" prefHeight="200.0" prefWidth="200.0" styleClass="jtext-area" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="hexTextA" prefHeight="568.0" prefWidth="201.0" styleClass="jtext-area" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
    </children>

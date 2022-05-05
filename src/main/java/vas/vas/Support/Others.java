@@ -14,7 +14,7 @@ import static vas.vas.Support.pop_up.generating_file;
 public class Others {
     public static boolean developer_mode = false;
     public static boolean classic_mode = true;
-    public static boolean Instruction_Mode = true;
+    public static boolean Instruction_Mode;
 
     public static String path_developer = "";
     public static boolean file_already_exists = false;
@@ -30,7 +30,7 @@ public class Others {
         file.createNewFile();
         PrintWriter writer = new PrintWriter(path_developer, StandardCharsets.UTF_8);
         writer.print(new BufferedReader(
-                new InputStreamReader(getFileFromResourceAsStream("vas/vas/instructions/instruction.txt"), StandardCharsets.UTF_8))
+                new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/instruction.txt"), StandardCharsets.UTF_8))
                 .lines()
                 .collect(Collectors.joining("\n")));
         writer.close();
@@ -76,5 +76,88 @@ public class Others {
             Instruction_Mode = classic_mode;
         }
 
+    }
+
+    public static boolean settings_exists(){
+        String dataFolder = System.getProperty("user.home") + "\\.Vassembler\\settings";
+        File file = new File(dataFolder);
+        return file.exists();
+    }
+
+    public static void duplicate_settings() throws IOException {
+        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
+        File file = new File(dataFolder);
+        file.mkdirs();
+        File f = new File(dataFolder + "\\settings");
+        PrintWriter writer = new PrintWriter(f, StandardCharsets.UTF_8);
+        writer.print(new BufferedReader(
+                new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/settings"), StandardCharsets.UTF_8))
+                .lines()
+                .collect(Collectors.joining("\n")));
+        writer.close();
+    }
+
+    public static void settings_file() throws IOException {
+        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
+        File file = new File(dataFolder + "\\settings");
+        InputStream inputStream = new FileInputStream(file);
+        String settings = new BufferedReader(
+                new InputStreamReader(inputStream, StandardCharsets.UTF_8))
+                .lines()
+                .collect(Collectors.joining("\n"));
+        if(settings.contains("en")){
+            LngDefines.LNG_active = LngDefines.LNG_EN;
+            LngDefines.Inglese();
+        }
+        else{
+            LngDefines.LNG_active = LngDefines.LNG_IT;
+            LngDefines.Italiano();
+        }
+
+        if(settings.contains("developer")){
+            Instruction_Mode = developer_mode;
+        }
+        else Instruction_Mode = classic_mode;
+    }
+
+    public static void change_language_settings() throws FileNotFoundException {
+        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
+        File file = new File(dataFolder + "\\settings");
+        InputStream inputStream = new FileInputStream(file);
+        String settings = new BufferedReader(
+                new InputStreamReader(inputStream, StandardCharsets.UTF_8))
+                .lines()
+                .collect(Collectors.joining("\n"));
+        if(settings.contains("en")){
+            settings = settings.replace("en", "it");
+        }
+        else settings = settings.replace("it", "en");
+        try {
+            PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
+            writer.print(settings);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void change_mode_settings() throws FileNotFoundException {
+        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
+        File file = new File(dataFolder + "\\settings");
+        InputStream inputStream = new FileInputStream(file);
+        String settings = new BufferedReader(
+                new InputStreamReader(inputStream, StandardCharsets.UTF_8))
+                .lines()
+                .collect(Collectors.joining("\n"));
+        if(settings.contains("developer")){
+            settings = settings.replace("developer", "classic");
+        }
+        else settings = settings.replace("classic", "developer");
+        try {
+            PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
+            writer.print(settings);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

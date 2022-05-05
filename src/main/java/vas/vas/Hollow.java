@@ -8,7 +8,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import vas.vas.Support.LngDefines;
+import vas.vas.Support.Others;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class Hollow extends Application {
@@ -17,17 +19,23 @@ public class Hollow extends Application {
     public static void iconified() {
         stage.setIconified(true);
     }
+    public void load_settings() throws IOException {
+        if(Others.settings_exists()){
+            Others.settings_file();
+        }
+        else{
+            Others.duplicate_settings();
+            Others.settings_file();
+        }
+    }
     @Override
     public void start(Stage stage) throws Exception{
-        //Carico il file .fxml che definisce la grafica del programma
+        load_settings();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/main.fxml")));
-        //Titolo del programma
         stage.setTitle("Vassembler");
-        //Icona del programma
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/icons8_puzzle_30px.png")));
         stage.getIcons().add(icon);
         Scene sc = new Scene(root);
-        //Movimento del programma
         stage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(evt ->{
             x = evt.getSceneX();
@@ -40,7 +48,6 @@ public class Hollow extends Application {
         stage.setScene(sc);
         stage.show();
         Hollow.stage = stage;
-        LngDefines.Italiano();
     }
     public static void main(String[] args) {
         launch(args);

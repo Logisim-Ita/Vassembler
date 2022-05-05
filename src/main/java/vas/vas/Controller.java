@@ -2,58 +2,58 @@ package vas.vas;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import vas.vas.Assem.Elaboration;
 import vas.vas.Support.*;
-import vas.vas.Support.Thread;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Controller {
     @FXML
-    private TextArea codezone;
+    public TextArea codezone;
 
     @FXML
-    private TextArea hexTextA;
+    public TextArea hexTextA;
 
     @FXML
-    private Button listmode;
+    public Button listmode;
 
     @FXML
-    private Button save;
+    public Button save;
 
     @FXML
-    private Button save_as;
+    public Button save_as;
 
     @FXML
     private Button create_new;
 
     @FXML
-    private Button open_asm;
+    public Button open_asm;
 
     @FXML
-    private Button assemble;
+    public Button assemble;
 
     @FXML
-    private Button export_rom;
+    public Button export_rom;
 
     @FXML
-    private Button beautify;
+    public Button beautify;
 
     @FXML
-    private Button instruction_list;
+    public Button instruction_list;
 
     @FXML
-    private Button language;
+    public Button language;
     /**
      * Tasto per terminare il programma
      */
 
-    public void change_language(){
-        LngDefines.swapLNG();
-
-        listmode.setText(LngDefines.LNG_Normal_Mode_using);
+    public void initialize(){
+        if(Others.Instruction_Mode == Others.classic_mode) listmode.setText(LngDefines.LNG_Normal_Mode_using);
+        else listmode.setText(LngDefines.LNG_Developer_Mode_using);
+        if(LngDefines.LNG_active == LngDefines.LNG_IT) language.setText(LngDefines.LNG_Language_using);
+        else language.setText(LngDefines.LNG_Language_using);
         save.setText(LngDefines.LNG_Save_using);
         save_as.setText(LngDefines.LNG_Save_as_using);
         create_new.setText(LngDefines.LNG_Create_new_using);
@@ -62,7 +62,12 @@ public class Controller {
         export_rom.setText(LngDefines.LNG_Export_Rom_using);
         beautify.setText(LngDefines.LNG_Beautify_using);
         instruction_list.setText(LngDefines.LNG_Instruction_list_using);
-        language.setText(LngDefines.LNG_Language_using);
+    }
+
+    public void change_language() throws FileNotFoundException {
+        LngDefines.swapLNG();
+        initialize();
+        Others.change_language_settings();
     }
 
 
@@ -71,7 +76,7 @@ public class Controller {
             System.exit(0);
         }
         else{
-            pop_up.pop_exit("Non hai salvato perderai i progressi se non salvi!");
+            pop_up.pop_exit(LngDefines.LNG_Progress_lost_using);
         }
     }
 
@@ -82,8 +87,9 @@ public class Controller {
         Hollow.iconified();
     }
 
-    public void instructions_mode(){
+    public void instructions_mode() throws FileNotFoundException {
         Others.developer_mode(listmode);
+        Others.change_mode_settings();
     }
 
     /**
@@ -106,7 +112,7 @@ public class Controller {
 
      public void newFile(){
         if(!File.code.equals(codezone.getText())){
-            pop_up.pop_exit("Non hai salvato perderai i progressi se non salvi!",codezone);
+            pop_up.pop_exit(LngDefines.LNG_Progress_lost_using,codezone);
         }
         else{
             File.path = "";
@@ -129,8 +135,7 @@ public class Controller {
     }
 
     public void list(){
-        java.lang.Thread thread = new Thread("file",hexTextA);
-        thread.start();
+        build_list.list(hexTextA);
     }
 
     public void assembla() throws IOException {

@@ -1,5 +1,6 @@
 package vas.vas.Assem;
 
+import vas.vas.Support.LngDefines;
 import vas.vas.Support.Others;
 import vas.vas.Support.pop_up;
 
@@ -28,7 +29,7 @@ public class Elaboration {
 		}
 		else {
 			instructionSet = new BufferedReader(
-					new InputStreamReader(getFileFromResourceAsStream("vas/vas/instructions/instruction.txt"), StandardCharsets.UTF_8))
+					new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/instruction.txt"), StandardCharsets.UTF_8))
 					.lines()
 					.collect(Collectors.joining("\n"));
 		}
@@ -48,7 +49,7 @@ public class Elaboration {
 		ClassLoader classLoader = Elaboration.class.getClassLoader();
 		InputStream inputStream = classLoader.getResourceAsStream(fileName);
 
-		// the stream holding the file content
+		//Di base è impossibile che questo errore si presenti, ma lo lascio comunque
 		if (inputStream == null) {
 			throw new IllegalArgumentException("Istruzioni non trovate!");
 		} else {
@@ -301,11 +302,11 @@ public class Elaboration {
 				}
 			}
 			if (temp.equals(trad) && !code.get(i).Key.equals("")) {
-				er.error_load("Errore nella linea " + (i + 1) + ". Ricontrolla e riprova \n");
+				er.error_load(LngDefines.LNG_Error_in_line_using + (i + 1) + LngDefines.LNG_Error_in_line_2_using);
 			}
 		}
 		}
-		er.error_load("Conversione completata.\n");
+		er.error_load(LngDefines.LNG_Conversion_complete_using);
 		return trad;
 	}
 

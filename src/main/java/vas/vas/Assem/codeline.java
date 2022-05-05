@@ -1,5 +1,6 @@
 package vas.vas.Assem;
 
+import vas.vas.Support.LngDefines;
 import vas.vas.Support.pop_up;
 
 import java.util.ArrayList;
@@ -76,7 +77,7 @@ public class codeline {
 					label = SemiHumanCode.substring(0, SemiHumanCode.indexOf(":"));
 					SemiHumanCode = SemiHumanCode.substring(SemiHumanCode.indexOf(":") + 1);
 				} else {
-					er.error_load("unvalid label in label position\n");
+					er.error_load(LngDefines.LNG_Label_position_error_using);
 				}
 			}
 			SemiHumanCode = StringCleaning(SemiHumanCode);
@@ -129,7 +130,7 @@ public class codeline {
 
 		}
 		if (HexError) {
-			er.error_load("unvalid Hex number insered, please check your code\n");
+			er.error_load(LngDefines.LNG_HEX_value_error_using);
 		}
 		// System.out.println(Key+" "+FirstIsNum+" "+SecondIsNum+" "+FirstN+"
 		// "+FirstNB+" "+SecondN);

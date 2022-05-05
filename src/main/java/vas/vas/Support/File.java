@@ -27,7 +27,7 @@ public class File {
 
     public static void save(String text, String format) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Salva il file");
+        fileChooser.setTitle(LngDefines.LNG_window_Save_using);
         if(format.equals(".asm")){
             fileChooser.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("ASM Files", "*.asm")
@@ -62,7 +62,7 @@ public class File {
 
     public static void loadASM(TextArea codezone) throws IOException {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Apri il file");
+        fileChooser.setTitle(LngDefines.LNG_window_Open_using);
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("ASM Files", "*.asm")
         );
@@ -73,22 +73,5 @@ public class File {
             path = file.getPath();
             code = text;
         }
-    }
-
-    /**
-     * Legge il contenuto di un file
-     * @param filePath
-     * @return
-     * @throws IOException
-     */
-    public static String full_file_reader(String filePath) {
-        String content = "";
-        try{
-            content = new String ( Files.readAllBytes( Paths.get(filePath) ) );
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        return content;
     }
 }

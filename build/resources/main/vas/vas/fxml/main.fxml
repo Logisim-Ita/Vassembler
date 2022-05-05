@@ -16,7 +16,7 @@
    <children>
       <BorderPane layoutY="-1.0" prefHeight="619.0" prefWidth="1074.0" style="-fx-background-color: #1a1818;">
          <left>
-            <VBox prefHeight="568.0" prefWidth="183.0" style="-fx-background-color: #4cf5ac;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="568.0" prefWidth="183.0" styleClass="vbox" BorderPane.alignment="CENTER">
                <children>
                   <Button id="asm_save" fx:id="save" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#save" prefHeight="42.0" prefWidth="277.0" text="Salva" textFill="WHITE">
                      <graphic>
@@ -154,7 +154,7 @@
             </VBox>
          </left>
          <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="1074.0" style="-fx-background-color: #1ad685;" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="1074.0" styleClass="hbox" BorderPane.alignment="CENTER">
                <children>
                   <Label graphicTextGap="20.0" prefHeight="30.0" prefWidth="160.0" text="Vassembler" textFill="WHITE">
                      <graphic>
@@ -169,7 +169,7 @@
                      </font>
                   </Label>
                   <HBox />
-                  <Button fx:id="minusButton" mnemonicParsing="false" onAction="#minimize" prefHeight="50.0" prefWidth="46.0" styleClass="xbutton" stylesheets="@../css/styling.css" HBox.hgrow="NEVER">
+                  <Button fx:id="minusButton" mnemonicParsing="false" onAction="#minimize" prefHeight="50.0" prefWidth="46.0" styleClass="xbutton" HBox.hgrow="NEVER">
                      <graphic>
                         <ImageView id="minumButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -181,7 +181,7 @@
                         <Insets left="780.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#stopApplication" prefHeight="51.0" prefWidth="48.0" styleClass="xbutton" stylesheets="@../css/styling.css" fx:id="xxButton">
+                  <Button mnemonicParsing="false" onAction="#stopApplication" prefHeight="51.0" prefWidth="48.0" styleClass="xbutton" fx:id="xxButton">
                      <graphic>
                         <ImageView fitHeight="33.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -200,13 +200,13 @@
             </HBox>
          </top>
          <center>
-            <TextArea id="textarea" fx:id="codezone" prefHeight="568.0" prefWidth="683.0" promptText="Code here:" stylesheets="@../css/styling.css" text="main:" BorderPane.alignment="CENTER">
+            <TextArea id="textarea" fx:id="codezone" prefHeight="568.0" prefWidth="683.0" promptText="Code here:" text="main:" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font></TextArea>
          </center>
          <right>
-            <TextArea fx:id="hexTextA" prefHeight="568.0" prefWidth="201.0" styleClass="jtext-area" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="hexTextA" prefHeight="568.0" prefWidth="201.0" styleClass="jtext-area" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
    </children>

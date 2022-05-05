@@ -1,6 +1,7 @@
 package vas.vas.Support;
 
 import javafx.scene.control.Button;
+import vas.vas.Hollow;
 
 import java.io.*;
 import java.io.File;
@@ -29,10 +30,13 @@ public class Others {
         File file = new File(path_developer);
         file.createNewFile();
         PrintWriter writer = new PrintWriter(path_developer, StandardCharsets.UTF_8);
-        writer.print(new BufferedReader(
-                new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/instruction.txt"), StandardCharsets.UTF_8))
-                .lines()
-                .collect(Collectors.joining("\n")));
+        if(!Download_list.internet_check()){
+            writer.print(new BufferedReader(
+                    new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/instruction.txt"), StandardCharsets.UTF_8))
+                    .lines()
+                    .collect(Collectors.joining("\n")));
+        }
+        writer.print(Download_list.instructions);
         writer.close();
         generated_file();
     }
@@ -150,8 +154,12 @@ public class Others {
                 .collect(Collectors.joining("\n"));
         if(settings.contains("developer")){
             settings = settings.replace("developer", "classic");
+            Hollow.normal_style();
         }
-        else settings = settings.replace("classic", "developer");
+        else {
+            settings = settings.replace("classic", "developer");
+            Hollow.developer_style();
+        }
         try {
             PrintWriter writer = new PrintWriter(file, StandardCharsets.UTF_8);
             writer.print(settings);

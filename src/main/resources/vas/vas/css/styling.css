@@ -1,56 +1,66 @@
+.root{
+    -primary-shade_normal: #92b6b9;
+    -primary-shade_hold: #73a1a6;
+    -primary-shade_pressed: #59888c;
+    -primary-text-area-base: #466a6d;
+    -primary-text-area-hex: #324b4e;
+    -primary-menu-base: #324b4e;
+}
+
 .button{
     -fx-font: bold 13px 'serif';
-    -fx-background-color : #4cf5ac;
+    -fx-background-color : -primary-shade_normal;
     -fx-background-radius :0em;
 }
+
 .button:hover{
-    -fx-background-color : #1fed94;
+    -fx-background-color : -primary-shade_hold;
 }
+
 .button:pressed{
-    -fx-background-color :  #1ad685;
+    -fx-background-color :  -primary-shade_pressed;
+}
+
+.hbox{
+    -fx-background-color : -primary-shade_pressed;
+}
+
+.vbox{
+    -fx-background-color : -primary-shade_normal;
 }
 
 .xbutton{
-    -fx-background-color:  #1ad685;
-}
-.xbutton:hover{
-    -fx-background-color : #1fed94;
-}
-.xbutton:pressed{
-    -fx-background-color :  #1ad685;
+    -fx-background-color:  -primary-shade_pressed;
 }
 
+.xbutton:hover{
+    -fx-background-color : -primary-shade_hold;
+}
+
+.xbutton:pressed{
+    -fx-background-color :  -primary-shade_pressed;
+}
 
 .text-area .content{
-    -fx-background-color: #383940;
+    -fx-background-color: -primary-text-area-base;
 }
 
 .context-menu{
-    -fx-background-color: #383940;
+    -fx-background-color: -primary-menu-base;
 }
 
 .context-menu:focused {
-    -fx-background-color: #383940;
+    -fx-background-color: -primary-menu-base;
     -fx-focus-color:white;
 }
 
 .menu-item:focused {
-    -fx-background-color: #383940;
-    -fx-focus-color:white;
-}
-
-/*change the color of the choicebox when selected*/
-.choicebox{
-    -fx-background-color: #383940;
-}
-
-.choicebox:focused {
-    -fx-background-color: #383940;
+    -fx-background-color: -primary-menu-base;
     -fx-focus-color:white;
 }
 
 .menu:focused {
-    -fx-background-color: #383940;
+    -fx-background-color: -primary-menu-base;
     -fx-focus-color:white;
 }
 
@@ -62,26 +72,23 @@
       -fx-text-fill: #a6abb3;
 }
 
-.scroll-bar{
-    -fx-background-color: #353940;
-}
-
 .text-area{
-    -fx-highlight-fill: #a6abb3;
+    -fx-highlight-fill: -primary-text-area-base;
+    -fx-highlight-fill:  #a6abb3;
     -fx-text-fill: #ffffff;
-    -fx-background-color: #353940;
+    -fx-background-color: -primary-text-area-base;
     -fx-font-family:"Consolas";
     -fx-font-size: 18px;
 }
 
 .jtext-area .content{
-    -fx-background-color: #2b3233;
+    -fx-background-color: -primary-text-area-hex;
 }
 
 .jtext-area{
     -fx-highlight-fill: #a6abb3;
     -fx-text-fill: #ffffff;
-    -fx-background-color: #2b3233;
+    -fx-background-color: -primary-text-area-hex;
     -fx-font-family:"Courier New";
     -fx-font-size: 20px;
     -fx-font-weight: bold;

@@ -18,9 +18,24 @@ import java.util.Objects;
 public class Hollow extends Application {
     double x,y = 0;
     public static Stage stage;
+    public static Scene sc;
     public static void iconified() {
         stage.setIconified(true);
     }
+
+    public static void normal_style(){
+        sc.getStylesheets().clear();
+        sc.getStylesheets().add(Hollow.class.getResource("css/styling.css").toExternalForm());
+        stage.setScene(sc);
+        stage.show();
+    }
+    public static void developer_style(){
+        sc.getStylesheets().clear();
+        sc.getStylesheets().add(Hollow.class.getResource("css/developer_styling.css").toExternalForm());
+        stage.setScene(sc);
+        stage.show();
+    }
+
     public void load_settings() throws IOException {
         if(Others.settings_exists()){
             Others.settings_file();
@@ -37,7 +52,7 @@ public class Hollow extends Application {
         stage.setTitle("Vassembler");
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/icons8_puzzle_30px.png")));
         stage.getIcons().add(icon);
-        Scene sc = new Scene(root);
+        sc = new Scene(root);
         stage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(evt ->{
             x = evt.getSceneX();
@@ -47,9 +62,13 @@ public class Hollow extends Application {
             stage.setX(evt.getScreenX()-x);
             stage.setY(evt.getScreenY()-y);
         });
-        stage.setScene(sc);
-        stage.show();
         Hollow.stage = stage;
+        if(Others.Instruction_Mode == Others.developer_mode){
+            developer_style();
+        }
+        else{
+            normal_style();
+        }
         if(Download_list.internet_check()){
             Download_list.update_list();
         }

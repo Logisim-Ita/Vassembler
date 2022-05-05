@@ -67,7 +67,6 @@ public class Controller {
         Others.change_language_settings();
     }
 
-
     public void stopApplication(){
         if(File.code.equals(codezone.getText())){
             System.exit(0);

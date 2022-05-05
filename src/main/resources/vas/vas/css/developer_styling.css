@@ -1,10 +1,14 @@
 .root{
-    -primary-shade_normal: #92b6b9;
-    -primary-shade_hold: #73a1a6;
-    -primary-shade_pressed: #59888c;
-    -primary-text-area-base: #466a6d;
-    -primary-text-area-hex: #324b4e;
-    -primary-menu-base: #324b4e;
+    -primary-shade_normal: #8880cc;
+    -primary-shade_hold: #665cbd;
+    -primary-shade_pressed: #4c42a3;
+    -primary-text-area-base: #2a255b;
+    -primary-text-area-hex: #191636;
+    -primary-menu-base: #191636;
+}
+
+.lamaz{
+    -fx-font: bold 16px 'serif';
 }
 
 .button{
@@ -12,13 +16,15 @@
     -fx-background-color : -primary-shade_normal;
     -fx-background-radius :0em;
 }
-
 .button:hover{
     -fx-background-color : -primary-shade_hold;
 }
-
 .button:pressed{
     -fx-background-color :  -primary-shade_pressed;
+}
+
+.bpane{
+    -fx-background-color : -primary-shade_hold;
 }
 
 .hbox{

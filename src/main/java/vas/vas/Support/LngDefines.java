@@ -56,7 +56,8 @@ public class LngDefines {
     public static String LNG_Label_position_error_en = "Error in the label position\n";
     public static String LNG_HEX_value_error_it = "Valore esadecimale non valido\n";
     public static String LNG_HEX_value_error_en = "Invalid hexadecimal value\n";
-
+    public static String LNG_Internet_connection_error_it = "Connessione internet non disponibile\nUseremo il file istruzioni locale";
+    public static String LNG_Internet_connection_error_en = "Internet connection not available\nUsing local instruction file";
 
     public static String LNG_Save_using;
     public static String LNG_Save_as_using;
@@ -83,6 +84,7 @@ public class LngDefines {
     public static String LNG_Conversion_complete_using;
     public static String LNG_Label_position_error_using;
     public static String LNG_HEX_value_error_using;
+    public static String LNG_Internet_connection_error_using;
 
     public static void Italiano(){
         LNG_Save_using = LNG_Save_it;
@@ -110,6 +112,7 @@ public class LngDefines {
         LNG_Conversion_complete_using = LNG_Conversion_complete_it;
         LNG_Label_position_error_using = LNG_Label_position_error_it;
         LNG_HEX_value_error_using = LNG_HEX_value_error_it;
+        LNG_Internet_connection_error_using = LNG_Internet_connection_error_it;
     }
 
     public static void Inglese(){
@@ -138,6 +141,7 @@ public class LngDefines {
         LNG_Conversion_complete_using = LNG_Conversion_complete_en;
         LNG_Label_position_error_using = LNG_Label_position_error_en;
         LNG_HEX_value_error_using = LNG_HEX_value_error_en;
+        LNG_Internet_connection_error_using = LNG_Internet_connection_error_en;
     }
 
     public static void swapLNG(){

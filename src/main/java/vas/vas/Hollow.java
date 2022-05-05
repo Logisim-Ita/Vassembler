@@ -7,8 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import vas.vas.Support.Download_list;
 import vas.vas.Support.LngDefines;
 import vas.vas.Support.Others;
+import vas.vas.Support.pop_up;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -48,9 +50,17 @@ public class Hollow extends Application {
         stage.setScene(sc);
         stage.show();
         Hollow.stage = stage;
+        if(Download_list.internet_check()){
+            Download_list.update_list();
+        }
+        else {
+            pop_up pop = new pop_up();
+            pop.error_load(LngDefines.LNG_Internet_connection_error_using);
+            pop_up.pop_up();
+            pop_up.clear();
+        }
     }
     public static void main(String[] args) {
         launch(args);
     }
-
 }

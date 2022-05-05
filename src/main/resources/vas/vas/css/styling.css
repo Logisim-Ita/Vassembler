@@ -86,8 +86,3 @@
     -fx-font-size: 20px;
     -fx-font-weight: bold;
 }
-
-/*add black stroke to the text inside of the text-area*/
-.jtext-area .content:focus{
-    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.5) , 0.0 , 0 , 0 , 0 );
-}

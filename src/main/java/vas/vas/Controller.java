@@ -45,9 +45,6 @@ public class Controller {
 
     @FXML
     public Button language;
-    /**
-     * Tasto per terminare il programma
-     */
 
     public void initialize(){
         if(Others.Instruction_Mode == Others.classic_mode) listmode.setText(LngDefines.LNG_Normal_Mode_using);

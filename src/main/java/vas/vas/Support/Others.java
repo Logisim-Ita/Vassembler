@@ -83,16 +83,17 @@ public class Others {
     }
 
     public static boolean settings_exists(){
-        String dataFolder = System.getProperty("user.home") + "\\.Vassembler\\settings";
+        String dataFolder = System.getProperty("user.home") + File.separator + ".Vassembler"+ File.separator +"settings";
         File file = new File(dataFolder);
+        System.out.println(file.exists());
         return file.exists();
     }
 
     public static void duplicate_settings() throws IOException {
-        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
+        String dataFolder = System.getProperty("user.home") + File.separator + ".Vassembler";
         File file = new File(dataFolder);
         file.mkdirs();
-        File f = new File(dataFolder + "\\settings");
+        File f = new File(dataFolder + File.separator + "settings");
         PrintWriter writer = new PrintWriter(f, StandardCharsets.UTF_8);
         writer.print(new BufferedReader(
                 new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/settings"), StandardCharsets.UTF_8))
@@ -102,8 +103,8 @@ public class Others {
     }
 
     public static void settings_file() throws IOException {
-        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
-        File file = new File(dataFolder + "\\settings");
+        String dataFolder = System.getProperty("user.home") + File.separator + ".Vassembler";
+        File file = new File(dataFolder + File.separator + "settings");
         InputStream inputStream = new FileInputStream(file);
         String settings = new BufferedReader(
                 new InputStreamReader(inputStream, StandardCharsets.UTF_8))
@@ -125,8 +126,8 @@ public class Others {
     }
 
     public static void change_language_settings() throws FileNotFoundException {
-        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
-        File file = new File(dataFolder + "\\settings");
+        String dataFolder = System.getProperty("user.home") + File.separator + ".Vassembler";
+        File file = new File(dataFolder + File.separator + "settings");
         InputStream inputStream = new FileInputStream(file);
         String settings = new BufferedReader(
                 new InputStreamReader(inputStream, StandardCharsets.UTF_8))
@@ -145,8 +146,8 @@ public class Others {
         }
     }
     public static void change_mode_settings() throws FileNotFoundException {
-        String dataFolder = System.getProperty("user.home") + "\\.Vassembler";
-        File file = new File(dataFolder + "\\settings");
+        String dataFolder = System.getProperty("user.home") + File.separator + ".Vassembler";
+        File file = new File(dataFolder + File.separator + "settings");
         InputStream inputStream = new FileInputStream(file);
         String settings = new BufferedReader(
                 new InputStreamReader(inputStream, StandardCharsets.UTF_8))

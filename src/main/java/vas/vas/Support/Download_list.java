@@ -20,6 +20,7 @@ public class Download_list {
     }
 
     public static boolean internet_check(){
+        return true;/*
         try {
             URL url = new URL("http://www.google.com");
             URLConnection connection = url.openConnection();
@@ -29,6 +30,6 @@ public class Download_list {
         } catch (IOException e) {
             System.out.println("Internet is not connected");
             return false;
-        }
+        }*/
     }
 }

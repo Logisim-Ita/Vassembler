@@ -78,6 +78,7 @@ public class Hollow extends Application {
             pop_up.pop_up();
             pop_up.clear();
         }
+        Others.check_insructions_update();
     }
     public static void main(String[] args) {
         launch(args);

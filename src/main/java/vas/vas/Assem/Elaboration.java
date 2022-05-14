@@ -1,9 +1,6 @@
 package vas.vas.Assem;
 
-import vas.vas.Support.Download_list;
-import vas.vas.Support.LngDefines;
-import vas.vas.Support.Others;
-import vas.vas.Support.pop_up;
+import vas.vas.Support.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -18,25 +15,7 @@ public class Elaboration {
 	String[] ModList;
 	public void setInstructions() throws IOException {
 		String instructionSet;
-		if(Others.Instruction_Mode == Others.developer_mode){
-			if(Others.path_developer.equals("")){
-				Others.developer_path();
-			}
-			if(!Others.developer_file_exist()){
-				pop_up.generating_file();
-				Others.generate_developer_file();
-			}
-			instructionSet = r.readfilePass(Others.path_developer);
-		}
-		else if (Others.Instruction_Mode == Others.classic_mode && !Download_list.internet_check()){
-			instructionSet = new BufferedReader(
-					new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/instruction.txt"), StandardCharsets.UTF_8))
-					.lines()
-					.collect(Collectors.joining("\n"));
-		}
-		else{
-			instructionSet = Download_list.instructions;
-		}
+		instructionSet = build_list.using_list();
 		String[] atemp = instructionSet.split("___");
 		RegList = r.linedivision(atemp[0]);
 		ModList = r.linedivision(atemp[1]);

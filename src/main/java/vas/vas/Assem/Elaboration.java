@@ -3,9 +3,7 @@ package vas.vas.Assem;
 import vas.vas.Support.*;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Elaboration {
 	Read r = new Read();
@@ -15,7 +13,7 @@ public class Elaboration {
 	String[] ModList;
 	public void setInstructions() throws IOException {
 		String instructionSet;
-		instructionSet = build_list.using_list();
+		instructionSet = Others.using_list();
 		String[] atemp = instructionSet.split("___");
 		RegList = r.linedivision(atemp[0]);
 		ModList = r.linedivision(atemp[1]);

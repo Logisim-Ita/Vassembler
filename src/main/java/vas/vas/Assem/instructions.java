@@ -27,7 +27,7 @@ public class instructions {
 		SemiHumanCode = SHC;
 		RegisterList = RL;
 		ModifierList = ML;
-		ContainedMod = new ArrayList<String>();
+		ContainedMod = new ArrayList<>();
 		for (i = 0; i < ML.length; i++) {
 			if (SemiHumanCode.contains(ML[i]))
 				ContainedMod.add(ML[i]);

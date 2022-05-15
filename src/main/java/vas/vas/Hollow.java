@@ -7,10 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import vas.vas.Support.Download_list;
-import vas.vas.Support.LngDefines;
-import vas.vas.Support.Others;
-import vas.vas.Support.pop_up;
+import vas.vas.Support.*;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -45,6 +42,25 @@ public class Hollow extends Application {
             Others.settings_file();
         }
     }
+
+    public static void in() throws IOException {
+        if(Others.Instruction_Mode == Others.developer_mode){
+            developer_style();
+        }
+        else{
+            normal_style();
+        }
+        if(Download_list.internet_check()){
+            Download_list.update_list();
+        }
+        else {
+            pop_up pop = new pop_up();
+            pop.error_load(LngDefines.LNG_Internet_connection_error_using);
+            pop_up.pop_up();
+            pop_up.clear();
+        }
+    }
+
     @Override
     public void start(Stage stage) throws Exception{
         load_settings();
@@ -63,21 +79,7 @@ public class Hollow extends Application {
             stage.setY(evt.getScreenY()-y);
         });
         Hollow.stage = stage;
-        if(Others.Instruction_Mode == Others.developer_mode){
-            developer_style();
-        }
-        else{
-            normal_style();
-        }
-        if(Download_list.internet_check()){
-            Download_list.update_list();
-        }
-        else {
-            pop_up pop = new pop_up();
-            pop.error_load(LngDefines.LNG_Internet_connection_error_using);
-            pop_up.pop_up();
-            pop_up.clear();
-        }
+        in();
         Others.check_insructions_update();
     }
     public static void main(String[] args) {

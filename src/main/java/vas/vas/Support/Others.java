@@ -33,6 +33,36 @@ public class Others {
         return file.exists();
     }
 
+    public static String using_list() throws IOException {
+        String instructionSet;
+        if(Others.Instruction_Mode == Others.developer_mode){
+            if(Others.path_developer.equals("")){
+                Others.developer_path();
+            }
+            if(!Others.developer_file_exist()){
+                pop_up.generating_file();
+                Others.generate_developer_file();
+            }
+            instructionSet = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(Others.path_developer), StandardCharsets.UTF_8))
+                    .lines()
+                    .collect(Collectors.joining("\n"));
+        }
+        else if (Others.Instruction_Mode == Others.classic_mode && !Download_list.internet_check() && Others.instructions_exists()){
+            instructionSet = Others.read_instruction_file();
+        }
+        else if(Others.Instruction_Mode == Others.classic_mode && !Download_list.internet_check() && !Others.instructions_exists()){
+            instructionSet = new BufferedReader(
+                    new InputStreamReader(getFileFromResourceAsStream("vas/vas/others/instruction.txt"), StandardCharsets.UTF_8))
+                    .lines()
+                    .collect(Collectors.joining("\n"));
+        }
+        else{
+            instructionSet = Download_list.instructions;
+        }
+        return instructionSet;
+    }
+
     public static boolean instructions_exists(){
         String dataFolder = System.getProperty("user.home") + File.separator + ".Vassembler"+ File.separator +"instruction.txt";
         File file = new File(dataFolder);

@@ -46,7 +46,23 @@ public class Controller {
     @FXML
     public Button language;
 
-    public void initialize(){
+    public void initialize() {
+        if(Others.Instruction_Mode == Others.classic_mode) listmode.setText(LngDefines.LNG_Normal_Mode_using);
+        else listmode.setText(LngDefines.LNG_Developer_Mode_using);
+        if(LngDefines.LNG_active == LngDefines.LNG_IT) language.setText(LngDefines.LNG_Language_using);
+        else language.setText(LngDefines.LNG_Language_using);
+        save.setText(LngDefines.LNG_Save_using);
+        save_as.setText(LngDefines.LNG_Save_as_using);
+        create_new.setText(LngDefines.LNG_Create_new_using);
+        open_asm.setText(LngDefines.LNG_Open_using);
+        assemble.setText(LngDefines.LNG_Assemble_using);
+        export_rom.setText(LngDefines.LNG_Export_Rom_using);
+        beautify.setText(LngDefines.LNG_Beautify_using);
+        instruction_list.setText(LngDefines.LNG_Instruction_list_using);
+        hexTextA.setEditable(false);
+    }
+
+    public void refresh(){
         if(Others.Instruction_Mode == Others.classic_mode) listmode.setText(LngDefines.LNG_Normal_Mode_using);
         else listmode.setText(LngDefines.LNG_Developer_Mode_using);
         if(LngDefines.LNG_active == LngDefines.LNG_IT) language.setText(LngDefines.LNG_Language_using);
@@ -61,9 +77,9 @@ public class Controller {
         instruction_list.setText(LngDefines.LNG_Instruction_list_using);
     }
 
-    public void change_language() throws FileNotFoundException {
+    public void change_language() throws IOException {
         LngDefines.swapLNG();
-        initialize();
+        refresh();
         Others.change_language_settings();
     }
 
@@ -130,15 +146,14 @@ public class Controller {
         File.loadASM(codezone);
     }
 
-    public void list(){
-        build_list.list(hexTextA);
+    public void list() throws IOException {
+        hexTextA.setText(Others.using_list());
     }
 
     public void assembla() throws IOException {
         Elaboration el = new Elaboration();
         el.setInstructions();
         hexTextA.setText(el.translation(codezone.getText()));
-        hexTextA.setEditable(false);
         pop_up.pop_up();
         pop_up.clear();
     }

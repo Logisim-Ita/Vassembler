@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.24.1'
 }
 
@@ -30,10 +30,10 @@ application {
 }
 
 javafx {
-    version = '11.0.2'
+    version = '17.0.2'
     modules = ['javafx.controls', 'javafx.fxml']
 }
-def javaFxVersion = '11.0.2'
+def javaFxVersion = '17.0.2'
 dependencies {
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'win'
     implementation group: 'org.openjfx', name: 'javafx-base', version: javaFxVersion, classifier: 'mac'

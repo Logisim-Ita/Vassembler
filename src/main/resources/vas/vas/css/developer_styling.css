@@ -83,7 +83,7 @@
     -fx-highlight-fill:  #a6abb3;
     -fx-text-fill: #ffffff;
     -fx-background-color: -primary-text-area-base;
-    -fx-font-family:"Consolas";
+    -fx-font-family:"monospace";
     -fx-font-size: 18px;
 }
 
@@ -95,7 +95,7 @@
     -fx-highlight-fill: #a6abb3;
     -fx-text-fill: #ffffff;
     -fx-background-color: -primary-text-area-hex;
-    -fx-font-family:"Courier New";
+    -fx-font-family:"monospace";
     -fx-font-size: 20px;
     -fx-font-weight: bold;
 }
